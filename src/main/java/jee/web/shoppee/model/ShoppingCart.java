@@ -33,12 +33,14 @@ public class ShoppingCart {
 	public int getGrandTotal() {
 		return getItems().stream().map(CartItem::getTotalPrice).reduce(0, (a, b) -> a + b);
 	}
+	
+	public int getCount() {
+		return getItems().stream().map(CartItem::getQuantity).reduce(0, (a, b) -> a + b);
+	}
 
 	public List<CartItem> getItems() {
 		return new ArrayList<CartItem>(items.values());
 	}
 
-	public int getCount() {
-		return getItems().stream().map(CartItem::getQuantity).reduce(0, (a, b) -> a + b);
-	}
+	
 }

@@ -18,12 +18,12 @@ public class ShoppingCartController extends AbstractController {
     private static final String REMOVE_ACTION = "remove";
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	final HttpSession session = request.getSession();
+    	final HttpSession session = request.getSession(true);
         ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");
 
         final String action = request.getParameter("action");
         if(ADD_ACTION.equals(action)) {
-            add(shoppingCart, request);
+            shoppingCart = add(shoppingCart, request);
     	} else if(REMOVE_ACTION.equals(action)) {
     		remove(shoppingCart, request);
     	}
@@ -32,12 +32,13 @@ public class ShoppingCartController extends AbstractController {
         getDispatcher(request, "/shoppingCart.jsp").forward(request, response);;
     }
 
-    private void add(ShoppingCart shoppingCart, HttpServletRequest request) {
+    private ShoppingCart add(ShoppingCart shoppingCart, HttpServletRequest request) {
     	if(shoppingCart == null) {
             shoppingCart = new ShoppingCart();
         }
         final CartItem item = toModel(request);
         shoppingCart.add(item);
+        return shoppingCart;
     }
 
     private void remove(ShoppingCart shoppingCart, HttpServletRequest request) {

@@ -7,6 +7,7 @@
 <body>
 	<h2>Webshoppee Shopping Cart</h2><hr/>
 	<a href="${pageContext. request. contextPath}/index.jsp">Back</a><br/>
+	<c:if test="${not empty shoppingCart.items}">
 	<table>
 	   <tr>
 	       <td>ID</td>
@@ -29,7 +30,7 @@
             <form action="${pageContext. request. contextPath}/shopping-cart" method="post">
                 <input type="hidden" name="cartItemId" value="${item.id}">
                 <input type="hidden" name="action" value="remove">
-                <input type="submit" value="Add to Cart">
+                <input type="submit" value="Remove Item">
             </form>
            </td>
        </tr>
@@ -38,5 +39,9 @@
 	<br/>
 	<h2>Total Items: <c:out value="${shoppingCart.count}"/></h2>
 	<h2>Grand Total: <c:out value="${shoppingCart.grandTotal}"/></h2>
+	</c:if>
+	<c:if test="${empty shoppingCart.items}">
+	<h2>Shopping Cart Empty</h2> 
+	</c:if>
 </body>
 </html>
