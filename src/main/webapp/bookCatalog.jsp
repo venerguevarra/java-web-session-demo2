@@ -29,6 +29,7 @@
                 <input type="hidden" name="name" value="${book.name}">
                 <input type="hidden" name="description" value="${book.description}">
                 <input type="hidden" name="price" value="${book.price}">
+                <input type="hidden" name="action" value="add">
                 <input type="submit" value="Add to Cart">
             </form>
            </td>

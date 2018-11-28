@@ -13,6 +13,9 @@
 	       <td>Name</td>
 	       <td>Description</td>
 	       <td>Price</td>
+	       <td>Quantity</td>
+	       <td>Total Price</td>
+	       <td>Action</td>
 	   </tr>
 	   <c:forEach items="${shoppingCart.items}" var="item">
 	   <tr>
@@ -20,6 +23,15 @@
            <td><c:out value="${item.name}"/></td>
            <td><c:out value="${item.description}"/></td>
            <td><c:out value="${item.price}"/></td>
+           <td><c:out value="${item.quantity}"/></td>
+           <td><c:out value="${item.totalPrice}"/></td>
+           <td>
+            <form action="${pageContext. request. contextPath}/shopping-cart" method="post">
+                <input type="hidden" name="cartItemId" value="${item.id}">
+                <input type="hidden" name="action" value="remove">
+                <input type="submit" value="Add to Cart">
+            </form>
+           </td>
        </tr>
 	   </c:forEach>
 	</table>
