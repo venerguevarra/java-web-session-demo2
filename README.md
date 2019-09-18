@@ -1,1 +1,1 @@
-# Java EE Web Application Demo 1
+# java-web-session-demo2
