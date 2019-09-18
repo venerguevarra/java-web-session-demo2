@@ -4,10 +4,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.demo</groupId>
-    <artifactId>jee.web.shoppee.demo2</artifactId>
+    <artifactId>jee-web-session-demo2</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jee.web.shoppee.demo2</name>
+    <name>jee-web-session-demo2</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -45,7 +45,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>jee.web.shoppee.demo2</finalName>
+        <finalName>jee-web-session-demo2</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
